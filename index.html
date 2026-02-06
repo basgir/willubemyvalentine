@@ -196,7 +196,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Anne-Laure, will you be my Valentine? 💕</h1>
+        <h1><span id="recipientName">Someone</span>, will you be my Valentine? 💕</h1>
         <div class="buttons">
             <button class="yes-btn" onclick="celebrate()">Yes! 💖</button>
             <button class="no-btn" id="noBtn">No</button>
@@ -210,6 +210,11 @@
     </div>
 
     <script>
+        // Get name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipientName = urlParams.get('name') || 'Someone';
+        document.getElementById('recipientName').textContent = recipientName;
+
         const noBtn = document.getElementById('noBtn');
         const celebration = document.getElementById('celebration');
 
